@@ -19,4 +19,16 @@ public abstract class Site {
 	 */
 	public abstract void afficher() ;
 
+	public String getUrl() {
+		return url;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public String getTitre() {
+		return titre;
+	}
+
 }

@@ -1,5 +1,7 @@
 package fr.supaero.navigateur;
 
+import fr.supaero.tags.MarquePage;
+
 /**
  * 
  * Onglet contenant un site et une position, l'onglet peut etre marque, epingle, deplace, ou encore duplique
@@ -30,6 +32,6 @@ public class Onglet {
 	 * marquer l'onglet (l'ajouter au marque pages)
 	 */
 	public void marquer() {
-		
+
 	}
 }	

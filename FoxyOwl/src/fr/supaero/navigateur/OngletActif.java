@@ -20,7 +20,7 @@ public class OngletActif {
 	 * @param Onglet o <code> onglet </code> a ajouter au vecteur
 	 */
 	public void ajouter(Onglet o) {
-		
+		ongletactif.add(o);
 	}
 	
 	/**
@@ -29,6 +29,10 @@ public class OngletActif {
 	 * @param position_fin <code> nouvelle <code> position </code> de l'onglet a deplacer
 	 */
 	public void deplacer(int position_ini, int position_fin) {
-		
+		if((position_ini < ongletactif.size()) && (position_fin < ongletactif.size())) {
+		Onglet o = ongletactif.get(position_ini);
+		ongletactif.remove(position_ini);
+		ongletactif.insertElementAt(o, position_fin);
+		}
 	}
 }
