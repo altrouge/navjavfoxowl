@@ -1,5 +1,6 @@
 package fr.supaero.tags;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,9 +12,13 @@ import java.util.Date;
  * @author <a href="mailto:garion@supaero.fr">Christophe Garion</a>
  * @version 1.0
  */
-public class MarquePage {
+public class MarquePage implements Serializable {
 
-  private String titre;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7506836445733646236L;
+private String titre;
   private String url;
   private Date date;
   
@@ -28,6 +33,8 @@ public class MarquePage {
     this.titre = titre_;
     this.url = url_;
     this.date = date_;
+    
+    
   }
 
   /**

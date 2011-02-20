@@ -1,0 +1,141 @@
+#
+# An unexpected error has been detected by Java Runtime Environment:
+#
+# java.lang.OutOfMemoryError: requested 47184 bytes for Chunk::new. Out of swap space?
+#
+#  Internal Error (allocation.cpp:218), pid=5320, tid=5132
+#  Error: Chunk::new
+#
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (11.3-b02 mixed mode windows-amd64)
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000002aa9e000):  JavaThread "AWT-EventQueue-0" [_thread_in_native, id=5132, stack(0x000000002ba10000,0x000000002bb10000)]
+
+Stack: [0x000000002ba10000,0x000000002bb10000]
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  javax.swing.UIManager.setLookAndFeel(Ljava/lang/String;)V+9
+j  javax.swing.UIManager.initializeDefaultLAF(Ljava/util/Properties;)V+55
+j  javax.swing.UIManager.initialize()V+9
+j  javax.swing.UIManager.maybeInitialize()V+22
+j  javax.swing.UIManager.getUI(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;+0
+j  javax.swing.JPanel.updateUI()V+2
+j  javax.swing.JPanel.<init>(Ljava/awt/LayoutManager;Z)V+24
+j  javax.swing.JPanel.<init>(Z)V+9
+j  javax.swing.JPanel.<init>()V+2
+j  javax.swing.JRootPane.createGlassPane()Ljava/awt/Component;+4
+j  javax.swing.JRootPane.<init>()V+11
+j  javax.swing.JFrame.createRootPane()Ljavax/swing/JRootPane;+4
+j  javax.swing.JFrame.frameInit()V+16
+j  javax.swing.JFrame.<init>()V+20
+j  fr.supaero.navigateur.InterfaceGraphique.<init>()V+1
+j  fr.supaero.navigateur.Main$1.run()V+4
+j  java.awt.event.InvocationEvent.dispatch()V+47
+j  java.awt.EventQueue.dispatchEvent(Ljava/awt/AWTEvent;)V+26
+j  java.awt.EventDispatchThread.pumpOneEventForFilters(I)Z+204
+j  java.awt.EventDispatchThread.pumpEventsForFilter(ILjava/awt/Conditional;Ljava/awt/EventFilter;)V+30
+j  java.awt.EventDispatchThread.pumpEventsForHierarchy(ILjava/awt/Conditional;Ljava/awt/Component;)V+11
+j  java.awt.EventDispatchThread.pumpEvents(ILjava/awt/Conditional;)V+4
+j  java.awt.EventDispatchThread.pumpEvents(Ljava/awt/Conditional;)V+3
+j  java.awt.EventDispatchThread.run()V+9
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00000000003cb400 JavaThread "DestroyJavaVM" [_thread_blocked, id=4224, stack(0x0000000002080000,0x0000000002180000)]
+=>0x000000002aa9e000 JavaThread "AWT-EventQueue-0" [_thread_in_native, id=5132, stack(0x000000002ba10000,0x000000002bb10000)]
+  0x000000002aa9bc00 JavaThread "AWT-Windows" daemon [_thread_in_native, id=4184, stack(0x000000002b910000,0x000000002ba10000)]
+  0x000000002aa9b000 JavaThread "AWT-Shutdown" [_thread_blocked, id=3084, stack(0x000000002b810000,0x000000002b910000)]
+  0x000000002aa9a800 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=4796, stack(0x000000002b710000,0x000000002b810000)]
+  0x000000002aa3b000 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=5540, stack(0x000000002b270000,0x000000002b370000)]
+  0x000000002aa32400 JavaThread "CompilerThread1" daemon [_thread_blocked, id=1784, stack(0x000000002b170000,0x000000002b270000)]
+  0x000000002aa1ec00 JavaThread "CompilerThread0" daemon [_thread_blocked, id=2744, stack(0x000000002b070000,0x000000002b170000)]
+  0x000000002aa1e400 JavaThread "Attach Listener" daemon [_thread_blocked, id=2088, stack(0x000000002af70000,0x000000002b070000)]
+  0x000000002aa1dc00 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2044, stack(0x000000002ae70000,0x000000002af70000)]
+  0x000000002a9b8400 JavaThread "Finalizer" daemon [_thread_blocked, id=6084, stack(0x000000002ad70000,0x000000002ae70000)]
+  0x000000002a9b0800 JavaThread "Reference Handler" daemon [_thread_blocked, id=1068, stack(0x000000002ac70000,0x000000002ad70000)]
+
+Other Threads:
+  0x0000000000525000 VMThread [stack: 0x000000002ab70000,0x000000002ac70000] [id=5936]
+  0x000000002aa3c800 WatcherThread [stack: 0x000000002b370000,0x000000002b470000] [id=2672]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 9536K, used 1172K [0x000000001fba0000, 0x0000000020640000, 0x000000002a640000)
+  eden space 8192K, 14% used [0x000000001fba0000,0x000000001fcc5108,0x00000000203a0000)
+  from space 1344K, 0% used [0x00000000204f0000,0x00000000204f0000,0x0000000020640000)
+  to   space 1344K, 0% used [0x00000000203a0000,0x00000000203a0000,0x00000000204f0000)
+ PSOldGen        total 21888K, used 0K [0x000000000a640000, 0x000000000bba0000, 0x000000001fba0000)
+  object space 21888K, 0% used [0x000000000a640000,0x000000000a640000,0x000000000bba0000)
+ PSPermGen       total 21248K, used 6496K [0x0000000005240000, 0x0000000006700000, 0x000000000a640000)
+  object space 21248K, 30% used [0x0000000005240000,0x0000000005898278,0x0000000006700000)
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000042e000 	C:\Program Files\Java\jre6\bin\javaw.exe
+0x0000000077830000 - 0x00000000779dc000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000077610000 - 0x000000007772f000 	C:\Windows\system32\kernel32.dll
+0x000007fefda50000 - 0x000007fefdabb000 	C:\Windows\system32\KERNELBASE.dll
+0x000007fefe0e0000 - 0x000007fefe1bb000 	C:\Windows\system32\ADVAPI32.dll
+0x000007feff530000 - 0x000007feff5cf000 	C:\Windows\system32\msvcrt.dll
+0x000007fefe3d0000 - 0x000007fefe3ef000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefe660000 - 0x000007fefe78e000 	C:\Windows\system32\RPCRT4.dll
+0x0000000077730000 - 0x000000007782a000 	C:\Windows\system32\USER32.dll
+0x000007feff6f0000 - 0x000007feff757000 	C:\Windows\system32\GDI32.dll
+0x000007fefe790000 - 0x000007fefe79e000 	C:\Windows\system32\LPK.dll
+0x000007fefdc90000 - 0x000007fefdd5a000 	C:\Windows\system32\USP10.dll
+0x000007fefe590000 - 0x000007fefe5be000 	C:\Windows\system32\IMM32.DLL
+0x000007feff5e0000 - 0x000007feff6e9000 	C:\Windows\system32\MSCTF.dll
+0x000000006d7f0000 - 0x000000006dda8000 	C:\Program Files\Java\jre6\bin\server\jvm.dll
+0x000007fefb820000 - 0x000007fefb85b000 	C:\Windows\system32\WINMM.dll
+0x000000006d310000 - 0x000000006d31a000 	C:\Program Files\Java\jre6\bin\hpi.dll
+0x0000000077a00000 - 0x0000000077a07000 	C:\Windows\system32\PSAPI.DLL
+0x000000006d760000 - 0x000000006d76e000 	C:\Program Files\Java\jre6\bin\verify.dll
+0x000000006d3b0000 - 0x000000006d3d7000 	C:\Program Files\Java\jre6\bin\java.dll
+0x000000006d7b0000 - 0x000000006d7c2000 	C:\Program Files\Java\jre6\bin\zip.dll
+0x000000006d000000 - 0x000000006d1c2000 	C:\Program Files\Java\jre6\bin\awt.dll
+0x000007fef7d30000 - 0x000007fef7da0000 	C:\Windows\system32\WINSPOOL.DRV
+0x000007fefe1c0000 - 0x000007fefe3c2000 	C:\Windows\system32\ole32.dll
+0x000007fefe7a0000 - 0x000007feff526000 	C:\Windows\system32\SHELL32.dll
+0x000007fefe510000 - 0x000007fefe581000 	C:\Windows\system32\SHLWAPI.dll
+0x000007fefc180000 - 0x000007fefc374000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7600.16661_none_fa62ad231704eab7\comctl32.dll
+0x000007fefb860000 - 0x000007fefb878000 	C:\Windows\system32\DWMAPI.DLL
+0x000007fefbe00000 - 0x000007fefbe56000 	C:\Windows\system32\uxtheme.dll
+0x000007fefd6c0000 - 0x000007fefd6cf000 	C:\Windows\system32\CRYPTBASE.dll
+0x000000006d2a0000 - 0x000000006d30b000 	C:\Program Files\Java\jre6\bin\fontmanager.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=MS932 
+java_command: fr.supaero.navigateur.Main
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH=.;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\system32\wbem;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\MiKTeX 2.8\miktex\bin;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared;C:\Program Files (x86)\Common Files\Roxio Shared\10.0\DLLShared;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\QuickTime\QTSystem;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Satsuki Decoder Pack\Filtres;C:\Program Files\Satsuki Decoder Pack\Filtres
+USERNAME=Daniel
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 23 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.1 Build 7600 
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 7 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 2093428k(422980k free), swap 2521788k(5100k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (11.3-b02) for windows-amd64 JRE (1.6.0_13-b03), built on Mar  9 2009 10:50:19 by "java_re" with MS VC++ 8.0
+
+time: Wed Feb 16 23:05:49 2011
+elapsed time: 0 seconds
+

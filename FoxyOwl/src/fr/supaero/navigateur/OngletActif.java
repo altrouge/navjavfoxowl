@@ -15,6 +15,10 @@ public class OngletActif {
 	private Vector<Onglet> ongletactif;
 	
 	
+	public OngletActif() {
+	ongletactif = new Vector<Onglet>();	
+	}
+
 	/**
 	 * ajoute un onglet au vecteur en derniere position
 	 * @param Onglet o <code> onglet </code> a ajouter au vecteur
@@ -34,5 +38,17 @@ public class OngletActif {
 		ongletactif.remove(position_ini);
 		ongletactif.insertElementAt(o, position_fin);
 		}
+	}
+	
+	/**
+	 * Supprime l'onglet a la position selectionnee
+	 * 
+	 */
+	public void supprimer(int position) {
+		ongletactif.remove(position);
+		
+		System.out.println(ongletactif.size() + " " + position);
+		for(int i = position; i<= ongletactif.size()-1;i++)
+			ongletactif.get(i).setPosition(i+1);
 	}
 }

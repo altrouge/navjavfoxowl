@@ -1,7 +1,8 @@
 package fr.supaero.navigateur;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
-import java.lang.*;
 import java.io.*;
 
 /**
@@ -13,9 +14,19 @@ import java.io.*;
  * @version 0.1
  */
 public class Historique {
-	
+
+	public Historique(String fichier) {
+		super();
+		this.fichier = fichier;
+		this.historique = new Vector<Site>();
+	}
+
 	private String fichier;
 	private Vector<Site> historique;
+	
+	public Vector<Site> getHistorique() {
+		return historique;
+	}
 	
 	/**
 	 * Ajoute un site a l'historique
@@ -34,27 +45,79 @@ public class Historique {
 	
 	/**
 	 * Charge l'historique par un fichier
+	 * @param Wiki 
 	 * @throws IOException 
+	 * @throws ParseException 
+	 * @throws ClassNotFoundException 
 	 */
-	public void charge(String file) throws IOException {
+	public void charger() throws IOException, ParseException, ClassNotFoundException {
 	
-		FileReader f = null;
+		File f = new File(fichier);
+		if (!f.exists())
+			f.createNewFile();
+		// si le fichier n'existe pas, on le cree.
+		
+		
+		FileInputStream fis = new FileInputStream(fichier);
+		ObjectInputStream ois = new ObjectInputStream(fis);
+
+		historique = (Vector<Site>) ois.readObject();
+		
+
+		ois.close();
+
+		/*
 	
-		f = new FileReader(file);
+		f = new FileReader(fichier);
 		BufferedReader in = new BufferedReader(f);
 		String s = null;
-		Site site;
+		Site site = null;
+		String[] substring = new String[3];
+		SimpleDateFormat sdf = new SimpleDateFormat("dd:MM:yyyy;HH:mm:ss"); 
 		
 		while ((s = in.readLine()) != null) {
 			//TODO ajouter division des chaines et enregistrement sous le format site puis historique !
+			
+			substring = s.split(" ",3);
+			
+			if(substring[1].startsWith("http"))
+				site = new Html();
+			else if (substring[1].startsWith("wiki"))
+				site = new Wiki();
+			
+			site.setDate(sdf.parse(substring[0]));
+			site.setUrl(substring[1]);
+			site.setTitre(substring[3]);
+			
+			
+			historique.add(site);
+			
+			
 		}
+	*/
 	}
 	
 	/**
 	 * sauvegarde l'historique dans un fichier
+	 * @throws IOException 
+
 	 */
-	public void sauvegarder(String fichier) {
+	public void sauvegarder() throws IOException {
+
+		File f = new File(fichier);
+		if (!f.exists())
+			f.createNewFile();
+		// si le fichier n'existe pas, on le cree.
 		
+		
+		FileOutputStream fos = new FileOutputStream(fichier);
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+		oos.writeObject(historique);
+
+
+		oos.close();
+	 
 	}
 	
 	/**

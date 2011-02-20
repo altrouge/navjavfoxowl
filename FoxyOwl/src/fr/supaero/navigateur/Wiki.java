@@ -2,6 +2,8 @@ package fr.supaero.navigateur;
 
 import java.util.Date;
 
+import javax.swing.JEditorPane;
+
 /**
  * 
  * Page internet au format wiki, peut etre affichee, et modifiee si elle est en local
@@ -11,6 +13,9 @@ import java.util.Date;
  * @version 0.1
  */
 public class Wiki extends Site {
+	
+
+	private static final long serialVersionUID = 125L;
 	private String url;
 	private Date date;
 	private String titre;
@@ -18,8 +23,10 @@ public class Wiki extends Site {
 	/**
 	 * gere le "parser" du site et le rend lisible par un utilisateur non averti
 	 */
-	public void afficher(){	
-	
+	@Override
+	public void afficher(JEditorPane JEditorPane1, String url) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	/**
@@ -35,4 +42,13 @@ public class Wiki extends Site {
 	public void editer(){
 		
 	}
+
+	public Wiki(String url, Date date, String titre) {
+		super(url, date, titre);
+	}
+
+
+	
+
+
 }

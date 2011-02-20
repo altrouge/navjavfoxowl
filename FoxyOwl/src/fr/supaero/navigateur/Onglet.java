@@ -14,6 +14,27 @@ public class Onglet {
 	private Site site;
 	private int position;
 	
+	public Onglet() {
+		super();
+		this.site = new SiteDefault();
+	}
+
+	public Site getSite() {
+		return site;
+	}
+
+	public void setSite(Site site) {
+		this.site = site;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
+	}
+
 	/**
 	 * duplique l'onglet
 	 */
