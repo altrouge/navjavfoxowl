@@ -17,20 +17,42 @@ public class ListeMarquePage {
 	private Vector<MarquePage> listemp;
 
 	
-	public ListeMarquePage(String fichier_mp) {
-		super();
-		this.fichier_mp = fichier_mp;
-		this.listemp = new Vector<MarquePage>();
+	public Vector<MarquePage> getListemp() {
+		return listemp;
 	}
 
+	public ListeMarquePage(String fichier_mp_) {
+		super();
+		this.fichier_mp = fichier_mp_;
+		this.listemp = new Vector<MarquePage>();
+	}
+	
+	/*
+	 * Regarde si le site contenu dans le marquepage est deja marque
+	 */
+	public boolean existeDeja(MarquePage mp) {
+		for(MarquePage mp_ :this.listemp)
+			if(mp_.getURL().compareTo(mp.getURL()) == 0)
+				return true;
+		return false;
+	}
+
+	
+	/*
+	 * Ajoute un marque page
+	 */
 	public void ajouter(MarquePage mp) {
-		this.listemp.add(mp);
+		if(!existeDeja(mp))
+			this.listemp.add(mp);
 	}
 	
 	public void supprimer(MarquePage mp) {
 		this.listemp.remove(mp);
 	}
 	
+	/*
+	 * sauvegarde le marque page dans le fichier specifie pour construire le marque page
+	 */
 	public void sauvegarder() throws IOException {
 		
 		File f = new File(fichier_mp);
@@ -46,7 +68,10 @@ public class ListeMarquePage {
 		oos.close();
 	}
 
-	@SuppressWarnings("unchecked")
+	
+	/*
+	 * Charge le marque page depuis le fichier specifie pour construire le marque page
+	 */
 	public void charger() throws IOException, ClassNotFoundException {
 		
 		File f = new File(fichier_mp);
@@ -55,11 +80,11 @@ public class ListeMarquePage {
 		
 			try {
 			FileInputStream fis = new FileInputStream(fichier_mp);
-			ObjectInputStream ois = new ObjectInputStream(fis);
+			ObjectInputStream ois_ = new ObjectInputStream(fis);
 
-			listemp = (Vector<MarquePage>) ois.readObject();
+			listemp = (Vector<MarquePage>) ois_.readObject();
 
-			ois.close();
+			ois_.close();
 			
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

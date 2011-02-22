@@ -1,0 +1,8 @@
+	Cette application FoxyOwl a ete developpee conjointement par Daniel Jartoux (daniel.jartoux@gmail.com) et Othman Ben Abbes (o.benabbes@gmail.com)
+
+	L'application en est encore a une version tres jeune, et de nombreuses fonctionnalites n'ont pas encore etees implementees. Vous pouvez joindre les auteurs pour tout probleme/toute requete.
+
+	Pour lancer ce programme, compilez les sources en incluant les classes de bliki (pour la gestion des wiki), JavaSE, ainsi que JUnit4.
+	A l'heure actuelle, l'initialisation des parametres de votre proxy se fait dans Initialiser.java, ainsi que AfficherPageWiki.java, dans une version ulterieur, cela se fera par un fichier de configuration specifique et unique. Il n'est pas encore possible de choisir les dossiers de sauvegarde de l'historique et des marque pages, verifiez que vous avez les droits dans le repertoire du dossier contenant l'application.
+
+	Version 0.9 : produit non encore finalise, de nombreux bugs subsistent encore et certaines fonctions sont a implementer

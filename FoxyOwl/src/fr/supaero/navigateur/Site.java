@@ -3,6 +3,7 @@ package fr.supaero.navigateur;
 import java.io.Serializable;
 import javax.swing.*;
 import java.util.Date;
+
 /**
  * 
  * classe abstraite designant l'ensemble des "sites" web
@@ -23,18 +24,18 @@ public abstract class Site implements Serializable {
 	private String url;
 	private Date date;
 	private String titre;
-	
+
 	/**
 	 * gere le "parser" du site et le rend lisible
 	 */
-	public abstract void afficher(JEditorPane JEditorPane1, String url) ;
+	public abstract void afficher(JEditorPane JEditorPane1, String url);
 
 	public Site(String url, Date date, String titre) {
 		this.url = url;
 		this.date = date;
 		this.titre = titre;
 	}
-	
+
 	public Site() {
 		date = new Date();
 		this.url = new String();
@@ -64,6 +65,5 @@ public abstract class Site implements Serializable {
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
-
 
 }

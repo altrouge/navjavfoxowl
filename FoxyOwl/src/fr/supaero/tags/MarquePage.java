@@ -22,6 +22,8 @@ private String titre;
   private String url;
   private Date date;
   
+  
+  
   /**
    * Créer une nouvelle instance de <code>MarquePage</code>.
    *

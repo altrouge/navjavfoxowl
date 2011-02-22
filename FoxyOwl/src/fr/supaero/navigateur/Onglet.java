@@ -4,7 +4,8 @@ import fr.supaero.tags.MarquePage;
 
 /**
  * 
- * Onglet contenant un site et une position, l'onglet peut etre marque, epingle, deplace, ou encore duplique
+ * Onglet contenant un site et une position, l'onglet peut etre marque, epingle,
+ * deplace, ou encore duplique
  * 
  * @author <a href="mailto@daniel.jartoux@isae.fr"> Daniel Jartoux </a>
  * @author <a href="mailto@o.ben-abbes@isae.fr"> Othman Ben Abbes </a>
@@ -13,7 +14,7 @@ import fr.supaero.tags.MarquePage;
 public class Onglet {
 	private Site site;
 	private int position;
-	
+
 	public Onglet() {
 		super();
 		this.site = new SiteDefault();
@@ -36,23 +37,23 @@ public class Onglet {
 	}
 
 	/**
-	 * duplique l'onglet
+	 * duplique l'onglet (a implementer)
 	 */
 	public void dupliquer() {
-		
+
 	}
-	
+
 	/**
-	 * epingle l'onglet (cf google chrome)
+	 * epingle l'onglet (cf google chrome) (a implementer)
 	 */
 	public void epingler() {
-		
+
 	}
-	
+
 	/**
-	 * marquer l'onglet (l'ajouter au marque pages)
+	 * marquer l'onglet (l'ajouter au marque pages) (voir si c'est vraiment utile et le plus efficace, dans ce cas, a implementer)
 	 */
 	public void marquer() {
 
 	}
-}	
+}
